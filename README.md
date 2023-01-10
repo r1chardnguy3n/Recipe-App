@@ -1,2 +1,2 @@
 # Recipe-App
-Recipe App built with Angular and Asp.NET API
+A recipe management system built with Angular and Asp.NET API
