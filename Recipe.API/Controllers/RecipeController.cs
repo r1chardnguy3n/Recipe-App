@@ -31,6 +31,8 @@ namespace Recipes.API.Controllers
         public async Task<List<Recipe.API.Library.Models.Recipe>> GetRecipes()
         {
             Recipes = await _recipeContext.Recipe
+                .Include(r => r.Ingredients)
+                .Include(r => r.Instructions)
                 .ToListAsync();
 
             return Recipes;             
