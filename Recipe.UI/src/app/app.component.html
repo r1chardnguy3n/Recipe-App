@@ -1,2 +1,21 @@
+<div>
+    <h1>Recipe App</h1>
+</div>
+<table>
+    <thead>
+        <th>Name</th>
+        <th>description</th>
+        <th>notes</th>
+        <th>image</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let recipe of recipes">
+            <td>{{recipe.name}}</td>
+            <td>{{recipe.description}}</td>
+            <td>{{recipe.notes}}</td>
+            <td>{{recipe.image}}</td>
+        </tr>
+    </tbody>
+</table>
 
 <router-outlet></router-outlet>
