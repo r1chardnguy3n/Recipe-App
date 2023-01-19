@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Category } from './models/category';
+import { Cuisine } from './models/cuisine';
 import { Recipe } from './models/recipe';
 import { RecipeService } from './services/recipe.service';
 
@@ -10,13 +12,21 @@ import { RecipeService } from './services/recipe.service';
 export class AppComponent {
   title = 'Recipe.UI';
   recipes: Recipe[] = [];
+  categories: Category[] = [];
+  cuisines: Cuisine[] = [];
 
   constructor(private recipeServices: RecipeService){}
 
   ngOnInit() : void{
+
     this.recipeServices.getRecipes()
     .subscribe((result: Recipe[]) => (this.recipes = result));
 
-    console.log(this.recipes);
+    this.recipeServices.getCategories()
+    .subscribe((result: Category[]) => (this.categories = result));
+
+    this.recipeServices.getCuisines()
+    .subscribe((result: Cuisine[]) => (this.cuisines = result));
+
   }
 }

@@ -18,9 +18,12 @@ public class RecipeContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<RecipeCategory>().HasKey(rc => new { rc.RecipeId, rc.CategoryId });
+        modelBuilder.Entity<RecipeCuisine>().HasKey(rc => new { rc.RecipeId, rc.CuisineId });
     }
 
     public DbSet<Models.Recipe> Recipe { get; set; }
 	public DbSet<Category> Category { get; set; }
-	public DbSet<RecipeCategory> RecipeCategory { get; set; }
+    public DbSet<Cuisine> Cuisine { get; set; }
+    public DbSet<RecipeCategory> RecipeCategory { get; set; }
+    public DbSet<RecipeCuisine> RecipeCuisine{ get; set; }
 }

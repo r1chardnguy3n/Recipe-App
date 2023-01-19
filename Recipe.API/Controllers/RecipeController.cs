@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Recipe.API.Library.DataAccess;
+using Recipe.API.Library.Models;
 
 namespace Recipes.API.Controllers
 {
@@ -14,30 +15,54 @@ namespace Recipes.API.Controllers
             _recipeContext = recipeContext;
         }
 
-        public Recipe.API.Library.Models.Recipe Recipe { get; set; } = new Recipe.API.Library.Models.Recipe();
-        public List<Recipe.API.Library.Models.Recipe> Recipes { get; set; } = new List<Recipe.API.Library.Models.Recipe>();
-
+        // Get 
+        #region Get
+        // Get individual recipe
         [HttpGet("get-recipe")]
         public async Task<Recipe.API.Library.Models.Recipe> GetRecipe(int id)
         {
-            Recipe = await _recipeContext.Recipe
+            var recipe = await _recipeContext.Recipe
                 .Where(r => r.Id == id)
                 .FirstOrDefaultAsync();
 
-            return Recipe;
+            return recipe;
         }
 
+        // Get list of recipes
         [HttpGet("get-recipes")]
         public async Task<List<Recipe.API.Library.Models.Recipe>> GetRecipes()
         {
-            Recipes = await _recipeContext.Recipe
+            var recipes = await _recipeContext.Recipe
                 .Include(r => r.Ingredients)
                 .Include(r => r.Instructions)
                 .ToListAsync();
 
-            return Recipes;             
+            return recipes;             
         }
 
+        // Get list of categories
+        [HttpGet("get-categories")]
+        public async Task<List<Category>> GetCategories()
+        {
+            var categories = await _recipeContext.Category
+                .ToListAsync();
+
+            return categories;
+        }
+
+        // Get list of cuisine
+        [HttpGet("get-cuisines")]
+        public async Task<List<Cuisine>> GetCuisines()
+        {
+            var Cuisines = await _recipeContext.Cuisine
+                .ToListAsync();
+
+            return Cuisines;
+        }
+        #endregion
+
+        // Post
+        #region Post
         [HttpPost("post-recipe")]
         public async Task<IActionResult> PostRecipe(Recipe.API.Library.Models.Recipe recipe)
         {
@@ -46,5 +71,6 @@ namespace Recipes.API.Controllers
 
             return Ok();
         }
+        #endregion
     }
 }

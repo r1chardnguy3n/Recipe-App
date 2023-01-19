@@ -28,5 +28,7 @@ public class Recipe
 
     public List<Instructions> Instructions { get; set; } = new List<Instructions>();
 
-    public IList<RecipeCategory> RecipeCategory { get; set; } 
+    public IList<RecipeCategory> RecipeCategory { get; set; }
+
+    public IList<RecipeCuisine> RecipeCuisine { get; set; }
 }

@@ -18,4 +18,26 @@
     </tbody>
 </table>
 
+
+<table>
+    <thead>
+        <th>Category Name</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categories">
+            <td>{{category.categoryName}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+        <th>Cuisine Name</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cuisine of cuisines">
+            <td>{{cuisine.cuisineType}}</td>
+        </tr>
+    </tbody>
+</table>
 <router-outlet></router-outlet>
