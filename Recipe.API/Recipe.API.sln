@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe.API", "Recipe.API.csproj", "{563637A2-5E34-4D00-B99A-EE874B2BB57C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe.API", "Recipe.API.csproj", "{563637A2-5E34-4D00-B99A-EE874B2BB57C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe.API.Library", "..\Recipe.API.Library\Recipe.API.Library.csproj", "{D137DFC9-99EA-42D9-ABEA-A05DDC054EA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipe.API.Library", "..\Recipe.API.Library\Recipe.API.Library.csproj", "{D137DFC9-99EA-42D9-ABEA-A05DDC054EA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipe.Mobile", "..\Recipe.Mobile\Recipe.Mobile.csproj", "{13F832F6-EDE5-4E60-9600-D59057DD277A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{D137DFC9-99EA-42D9-ABEA-A05DDC054EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D137DFC9-99EA-42D9-ABEA-A05DDC054EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D137DFC9-99EA-42D9-ABEA-A05DDC054EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F832F6-EDE5-4E60-9600-D59057DD277A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F832F6-EDE5-4E60-9600-D59057DD277A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F832F6-EDE5-4E60-9600-D59057DD277A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{13F832F6-EDE5-4E60-9600-D59057DD277A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F832F6-EDE5-4E60-9600-D59057DD277A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F832F6-EDE5-4E60-9600-D59057DD277A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

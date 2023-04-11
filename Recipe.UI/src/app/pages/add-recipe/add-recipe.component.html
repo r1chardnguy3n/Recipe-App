@@ -1,1 +1,133 @@
-<p>add-recipe works!</p>
+<app-page-header [header]="'Add Recipe'" [path]="'Home > Add Recipe'"></app-page-header>
+<form>
+    <div class="add-recipe-container" *ngIf="recipe" >
+        <div>
+            <!-- Image upload -->
+
+            <!-- Recipe name input -->
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="recipe-continaer">
+                        <div class="mb-3">
+                            <h4 for="" class="form-label">Recipe Name</h4>
+                            <input type="text"class="form-control" name="name" placeholder="enter recipe name" [(ngModel)]="recipe.name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description input -->
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="mb-3">
+                        <h4 for="" class="form-label">Description</h4>
+                        <textarea rows="4" type="text"class="form-control" name="description" placeholder="enter recipe description" [(ngModel)]="recipe.description"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ingredients -->
+            <div class="row mt-5">
+                <div class="col">
+                    <h4 for="" class="form-label">Ingredients</h4>
+                    <div class="row mt-3" *ngFor="let obj of ingredientArray; let i=index">
+                        <div class="col-1">
+                            <span class="ingredient-count">{{i + 1}}.</span>
+                        </div>
+                        <div class="col">
+                            <input type="text"
+                            class="form-control" 
+                            name="ingredient{{i}}"  
+                            placeholder="enter ingredient"
+                            [(ngModel)]="obj.ingredient">
+                        </div>
+                        <div class="col-2" >
+                            <button *ngIf="i + 1 < ingredientArray.length" type="button" style="width: 100%;" class="btn btn-outline-danger" (click)="removeIngredient(i)">remove</button>
+                            <button *ngIf="i + 1 == ingredientArray.length" type="button" style="width: 100%;" class="btn btn-outline-primary add-button" (click)="addIngredient()"> <b>+</b> </button>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="row mt-5">
+                <div class="col">
+                    <h4 for="" class="form-label">Instructions</h4>
+                    <div class="row mt-4" *ngFor="let obj of instructionArray; let i=index">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="instruction-step"> Step {{i + 1}}</span>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                    <input [(ngModel)]="obj.step" value="{{i + 1}}" name="step{{i}}"  hidden>
+                                    <textarea type="text"
+                                    class="form-control" 
+                                    name="instruction{{i}}"  
+                                    placeholder="enter instructions"
+                                    [(ngModel)]="obj.instruction"></textarea>
+                                </div>
+                                <div class="col-2" >
+                                    <button *ngIf="i + 1 < instructionArray.length" type="button" style="width: 100%;" class="btn btn-outline-danger" (click)="removeInstruction(i)">remove</button>
+                                    <button *ngIf="i + 1 == instructionArray.length" type="button" style="width: 100%;" class="btn btn-outline-primary add-button " (click)="addInstruction()"><b>+</b></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>   
+                </div>
+            </div>
+
+            <!-- Category and Cuisine selection -->
+            <div class="row mt-5">
+                <div class="col">
+                    <h4> Category </h4>
+                    <mat-form-field style="width: 20vw;">
+                        <mat-label>Category</mat-label>
+                        <mat-select [(ngModel)]="recipe.recipeCategory" name="category"  multiple>
+                            <mat-option *ngFor="let category of categories" [value]="category">{{category.categoryName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <h4>Cuisine</h4>
+                    <mat-form-field style="width: 20vw;">
+                        <mat-label>Cuisine</mat-label>
+                        <mat-select [(ngModel)]="recipe.recipeCuisine" name="cuisine"  multiple>
+                            <mat-option *ngFor="let cuisine of cuisines" [value]="cuisine">{{cuisine.cuisineType}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="row mt-4">
+                <div class="col">
+                    <h4 for="" class="form-label">Notes</h4>
+                    <textarea type="text"
+                        rows="4"
+                        class="form-control" 
+                        name="notes" 
+                        placeholder="enter note"
+                        [(ngModel)]="recipe.notes">
+                    </textarea>
+                </div>
+            </div>
+
+            <!-- Add recipe button -->
+            <div class="row mt-4">
+                <div class="col">
+                    <button mat-raised-button color="primary" (click)="addRecipe(recipe)">        
+                        <span style="color:white;">
+                            Add Recipe                  
+                        </span>
+                        <mat-icon style="color:white">add</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

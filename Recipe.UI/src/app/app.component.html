@@ -1,43 +1,10 @@
-<div>
-    <h1>Recipe App</h1>
-</div>
-<table>
-    <thead>
-        <th>Name</th>
-        <th>description</th>
-        <th>notes</th>
-        <th>image</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let recipe of recipes">
-            <td>{{recipe.name}}</td>
-            <td>{{recipe.description}}</td>
-            <td>{{recipe.notes}}</td>
-            <td>{{recipe.image}}</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<table>
-    <thead>
-        <th>Category Name</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let category of categories">
-            <td>{{category.categoryName}}</td>
-        </tr>
-    </tbody>
-</table>
-
-<table>
-    <thead>
-        <th>Cuisine Name</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let cuisine of cuisines">
-            <td>{{cuisine.cuisineType}}</td>
-        </tr>
-    </tbody>
-</table>
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened class="sidebar">
+        <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="main-content" >
+            <router-outlet></router-outlet>
+        </div>       
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -5,6 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.scss']
 })
+
 export class RecipeComponent {
 
 }
+
+
+  

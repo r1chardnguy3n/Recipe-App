@@ -1,0 +1,31 @@
+.category-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 90px;
+}
+
+@media only screen and (min-width: 600px) {
+    .category-container{
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .category-container{
+        padding: 50px;
+    }
+}
+
+@media only screen and (min-width: 1700px) {
+    .category-container{
+        padding: 90px;
+    }
+}
+
+@media only screen and (min-width: 2200px) {
+    .category-container{
+        padding: 90px;
+    }
+
+}

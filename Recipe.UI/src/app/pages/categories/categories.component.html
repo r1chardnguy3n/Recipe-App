@@ -1,0 +1,8 @@
+<div style="text-align: center;">
+    <app-page-header [header]="'Browse Recipes'" [path]="'Home > Categories'"></app-page-header>
+    <div class="category-container">
+        <div *ngFor="let category of categories" >
+            <app-category-cuisine-card [title]="category.categoryName"></app-category-cuisine-card>            
+        </div>
+    </div>
+</div>

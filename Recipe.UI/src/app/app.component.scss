@@ -1,0 +1,24 @@
+
+.mat-drawer-container{
+    background-color: white;
+}
+
+.main-content{
+    padding: 30px;
+    -webkit-box-shadow: 4px 4px 13px 3px #C4C4C4; 
+    box-shadow: 4px 4px 13px 3px #C4C4C4;
+    border-radius: 15px;
+    margin: 30px;
+    min-height: 92vh;
+}
+
+.sidebar{
+    background: #5ebad6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}

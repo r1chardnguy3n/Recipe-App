@@ -16,7 +16,7 @@ namespace Recipes.API.Controllers
         }
 
         // Get 
-        #region Get
+
         // Get individual recipe
         [HttpGet("get-recipe")]
         public async Task<Recipe.API.Library.Models.Recipe> GetRecipe(int id)
@@ -59,10 +59,10 @@ namespace Recipes.API.Controllers
 
             return Cuisines;
         }
-        #endregion
+
 
         // Post
-        #region Post
+
         [HttpPost("post-recipe")]
         public async Task<IActionResult> PostRecipe(Recipe.API.Library.Models.Recipe recipe)
         {
@@ -71,6 +71,44 @@ namespace Recipes.API.Controllers
 
             return Ok();
         }
-        #endregion
+
+        // Put
+
+        [HttpPost("update-recipe")]
+        public async Task<IActionResult> UpdateRecipe(Recipe.API.Library.Models.Recipe recipe)
+        {
+            var dbRecipe = await _recipeContext.Recipe.FindAsync(recipe.Id);
+
+            if (dbRecipe is null)
+                return BadRequest("recipe not found");
+
+            dbRecipe.Name = recipe.Name;
+            dbRecipe.Description = recipe.Description;
+            dbRecipe.Notes = recipe.Notes;
+            dbRecipe.RecipeCuisine = recipe.RecipeCuisine;
+            dbRecipe.RecipeCategory = recipe.RecipeCategory;
+
+            await _recipeContext.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        // Delete
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> DeleteRecipe(int recipeId)
+        {
+            var dbRecipe = await _recipeContext.Recipe.FindAsync(recipeId);
+
+            if (dbRecipe is null)
+                return BadRequest("recipe not found");
+
+            _recipeContext.Recipe.Remove(dbRecipe);
+            await _recipeContext.SaveChangesAsync();
+
+            return Ok();
+        }
+
+
     }
 }
